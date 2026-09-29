@@ -1,7 +1,7 @@
 # 1단계: C++ mapdump 컴파일 (Linux)
 FROM alpine:latest AS builder
 
-RUN apk add --no-grad g++ make cmake git build-base
+RUN apk add --no-cache g++ make cmake git build-base
 
 WORKDIR /build
 COPY . .
