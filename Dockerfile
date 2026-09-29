@@ -21,14 +21,11 @@ WORKDIR /app/renderer
 RUN npm install
 RUN npm run build
 
-# 실행 위치를 루트로 복귀
-WORKDIR /app
-
 ENV DISPLAY=:99
 ENV WINEDEBUG=-all
 ENV PORT=3000
 
 EXPOSE 3000
 
-# Xvfb 가상 디스플레이 가동 후 node 서버 실행
-CMD ["sh", "-c", "Xvfb :99 -screen 0 1024x768x16 & node server.js"]
+# renderer 폴더 내의 npm start 스크립트 실행
+CMD ["sh", "-c", "Xvfb :99 -screen 0 1024x768x16 & npm start"]
